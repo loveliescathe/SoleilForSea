@@ -1,112 +1,414 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>soleil for sea</title>
+
+    <title>Soleil of Sea</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #000;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: #0b2a5b;
+            margin: 0;
+            width: 100%;
+            height: 100vh;
+
+            background: #000;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-size: cover;
+
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+            overflow: hidden;
+
             animation: fadeIn 2s ease-in-out;
         }
 
+        /* =========================
+           FADE IN
+        ========================= */
+
         @keyframes fadeIn {
-            0% {
+            from {
                 opacity: 0;
             }
 
-            100% {
+            to {
                 opacity: 1;
             }
         }
 
+
+        /* =========================
+           TITLE
+        ========================= */
+
         h1 {
-            font-size: 100px;
             margin: 0;
-            text-shadow: 0 0 10px #8da9d0;
+
             text-align: center;
-            line-height: 1.1;
+
+            font-size: clamp(55px, 9vw, 120px);
+
+            line-height: 0.95;
+
+            font-weight: 600;
+
+            letter-spacing: 5px;
+
+            color: rgb(249, 0, 79);
+
+            text-shadow:
+                0 0 10px #ffffff,
+                0 0 25px rgba(249, 0, 79, 0.8),
+                0 0 45px rgba(249, 0, 79, 0.5);
         }
+
+
+        /* =========================
+           LETTER BLINK
+        ========================= */
 
         h1 span {
-            animation: blink 1s linear infinite alternate;
+            display: inline-block;
+
+            animation:
+                blink 1.2s linear infinite alternate;
         }
 
-        h1 span:nth-child(1) { animation-delay: 0.1s; }
-        h1 span:nth-child(2) { animation-delay: 0.2s; }
-        h1 span:nth-child(3) { animation-delay: 0.3s; }
-        h1 span:nth-child(4) { animation-delay: 0.4s; }
-        h1 span:nth-child(5) { animation-delay: 0.5s; }
-        h1 span:nth-child(6) { animation-delay: 0.6s; }
-        h1 span:nth-child(7) { animation-delay: 0.7s; }
-        h1 span:nth-child(8) { animation-delay: 0.8s; }
-        h1 span:nth-child(9) { animation-delay: 0.9s; }
-        h1 span:nth-child(10) { animation-delay: 1s; }
-        h1 span:nth-child(11) { animation-delay: 1.1s; }
-        h1 span:nth-child(12) { animation-delay: 1.2s; }
-        h1 span:nth-child(13) { animation-delay: 1.3s; }
-        h1 span:nth-child(14) { animation-delay: 1.4s; }
+
+        h1 span:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        h1 span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        h1 span:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        h1 span:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        h1 span:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        h1 span:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        h1 span:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        h1 span:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+        h1 span:nth-child(9) {
+            animation-delay: 0.9s;
+        }
+
+        h1 span:nth-child(10) {
+            animation-delay: 1s;
+        }
+
+        h1 span:nth-child(11) {
+            animation-delay: 1.1s;
+        }
+
+        h1 span:nth-child(12) {
+            animation-delay: 1.2s;
+        }
+
+        h1 span:nth-child(13) {
+            animation-delay: 1.3s;
+        }
+
 
         @keyframes blink {
             0% {
-                opacity: 0;
+                opacity: 0.25;
+
+                transform: translateY(2px);
+
+                text-shadow:
+                    0 0 5px rgba(255, 255, 255, 0.4);
             }
 
             100% {
                 opacity: 1;
+
+                transform: translateY(0);
+
+                text-shadow:
+                    0 0 10px #ffffff,
+                    0 0 25px rgba(249, 0, 79, 0.9),
+                    0 0 45px rgba(249, 0, 79, 0.7);
             }
         }
 
+
+        /* =========================
+           SUBTITLE
+        ========================= */
+
         p {
-            margin: 10px 0 20px;
-            font-size: 1.2em;
-            color: white;
-        }
+            margin: 25px 0 28px;
 
-        button {
-            padding: 10px 20px;
-            font-size: 1.2em;
-            background-color: #0b2a5b;
             color: #ffffff;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+
+            font-size: 20px;
+
+            letter-spacing: 2px;
+
+            text-align: center;
+
+            opacity: 0;
+
+            animation:
+                subtitleIn 2s ease forwards;
+
+            animation-delay: 1.5s;
+
+            text-shadow:
+                0 0 8px rgba(255, 255, 255, 0.8);
         }
 
-        button:hover {
-            background-color: #163f7a;
+
+        @keyframes subtitleIn {
+            from {
+                opacity: 0;
+
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform: translateY(0);
+            }
         }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .click-button {
+            display: inline-block;
+
+            padding: 13px 30px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: rgb(249, 0, 79);
+
+            color: #ffffff;
+
+            font-family:
+                'Gill Sans',
+                'Gill Sans MT',
+                Calibri,
+                'Trebuchet MS',
+                sans-serif;
+
+            font-size: 18px;
+
+            letter-spacing: 1px;
+
+            text-decoration: none;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 0 10px rgba(249, 0, 79, 0.7),
+                0 0 25px rgba(249, 0, 79, 0.4);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+
+            opacity: 0;
+
+            animation:
+                buttonIn 1.5s ease forwards;
+
+            animation-delay: 2s;
+        }
+
+
+        @keyframes buttonIn {
+            from {
+                opacity: 0;
+
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+        }
+
+
+        .click-button:hover {
+            background: #ff397f;
+
+            transform:
+                scale(1.08);
+
+            box-shadow:
+                0 0 15px rgba(255, 255, 255, 0.8),
+                0 0 30px rgba(249, 0, 79, 0.9),
+                0 0 60px rgba(249, 0, 79, 0.5);
+        }
+
+
+        .click-button:active {
+            transform:
+                scale(0.96);
+        }
+
+
+        /* =========================
+           LITTLE GLOW
+        ========================= */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            width: 500px;
+            height: 500px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(249, 0, 79, 0.08),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+
+            animation:
+                glow 5s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes glow {
+            from {
+                transform: scale(0.8);
+
+                opacity: 0.4;
+            }
+
+            to {
+                transform: scale(1.2);
+
+                opacity: 1;
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            h1 {
+                font-size: 55px;
+
+                letter-spacing: 3px;
+            }
+
+            p {
+                font-size: 16px;
+
+                margin-top: 22px;
+            }
+
+            .click-button {
+                font-size: 16px;
+
+                padding: 11px 25px;
+            }
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
+    <!-- =========================
+         TITLE
+    ========================= -->
+
     <h1>
-        <span>S</span><span>O</span><span>L</span><span>E</span><span>I</span><span>L</span>
-        <span><br></span>
-        <span>F</span><span>O</span><span>R</span>
-        <span><br></span>
-        <span>S</span><span>E</span><span>A</span>
+
+        <span>S</span>
+        <span>O</span>
+        <span>L</span>
+        <span>E</span>
+        <span>I</span>
+        <span>L</span>
+
+        <br>
+
+        <span>O</span>
+        <span>F</span>
+
+        <br>
+
+        <span>S</span>
+        <span>E</span>
+        <span>A</span>
+
     </h1>
 
-    <p>my beloved</p>
 
-    <a href="flower_w_heart.html">
-        <button>Click Here!</button>
+    <!-- =========================
+         SUBTITLE
+    ========================= -->
+
+    <p>
+        For my beloved &lt;3
+    </p>
+
+
+    <!-- =========================
+         BUTTON
+    ========================= -->
+
+    <a
+        href="./flower_w_heart.html"
+        class="click-button"
+    >
+        Click Here!
     </a>
 
+
 </body>
+
 </html>
-```
